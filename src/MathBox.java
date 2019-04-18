@@ -28,7 +28,12 @@ public class MathBox {
     }
 
     public void deleteNumber(Integer integer){
-        array.remove(integer);
+        for (int i = 0; i < array.size(); i++){
+            if (array.get(i) instanceof Integer && array.get(i).intValue() == integer){
+                array.remove(i);
+                break;
+            }
+        }
     }
 
     @Override
