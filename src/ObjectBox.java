@@ -17,4 +17,11 @@ public class ObjectBox {
             array.remove(object);
         }
     }
+    public String dump(){
+        String result = "";
+        for (int i = 0; i < array.size(); i++){
+            result += array.get(i).toString() + " ";
+        }
+        return result.trim();
+    }
 }
