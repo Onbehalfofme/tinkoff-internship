@@ -2,24 +2,29 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MathBox {
+public class MathBox extends ObjectBox{
     private ArrayList<Number> array;
 
+
     public MathBox(Number[] array) {
-        this.array = new ArrayList<Number>(Arrays.asList(array));
+        super(array);
+        this.array = new ArrayList<Number>();
+        for (int i = 0; i < array.length; i++) {
+            this.array.add((Number) super.getArray().get(i));
+        }
     }
 
    public Number summator() {
         Number sum = 0;
 
-        for (int i = 0; i <= array.size(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             sum = new BigDecimal(sum.toString()).add(new BigDecimal(array.get(i).toString()));
         }
         return sum;
     }
 
     public void splitter(Number divisor) {
-        for (int i = 0; i <= array.size(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             if (divisor.doubleValue() == 0) {
                 throw new IllegalArgumentException();
             }
@@ -67,4 +72,5 @@ public class MathBox {
         }
         return hash;
     }
+
 }

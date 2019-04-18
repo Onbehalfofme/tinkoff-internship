@@ -24,4 +24,7 @@ public class ObjectBox {
         }
         return result.trim();
     }
+    public ArrayList<Object> getArray(){
+        return this.array;
+    }
 }
