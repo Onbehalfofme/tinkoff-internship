@@ -9,7 +9,7 @@ public class MathBox {
         this.array = new ArrayList<Number>(Arrays.asList(array));
     }
 
-    Number summator() {
+   public Number summator() {
         Number sum = 0;
 
         for (int i = 0; i <= array.size(); i++) {
@@ -18,12 +18,21 @@ public class MathBox {
         return sum;
     }
 
-    void splitter(Number divisor) {
+    public void splitter(Number divisor) {
         for (int i = 0; i <= array.size(); i++) {
             if (divisor.doubleValue() == 0) {
                 throw new IllegalArgumentException();
             }
             array.set(i, new BigDecimal(array.get(i).toString()).divide(new BigDecimal(divisor.toString())));
+        }
+    }
+
+    public void deleteNumber(Integer integer){
+        for (int i = 0; i < array.size(); i++){
+            if (array.get(i) instanceof Integer && array.get(i).intValue() == integer){
+                array.remove(i);
+                break;
+            }
         }
     }
 
